@@ -1,4 +1,4 @@
-# near-drpc
+# NEAR-DRPC
 ## A Decentralized RPC service for NEAR Protocol 
 
 The service will scan the network and try to find out all the RPC nodes.
