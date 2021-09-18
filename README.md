@@ -22,13 +22,17 @@ Nodes are auto reweighted by latency and kicked out by status if not synced up.
 
 # Usage
 ## Getting Started
-### Dependencies
-- Install [Go](https://golang.org/doc/install)
 
 ### Building from source
+- Install [Go](https://golang.org/doc/install)
 ```sh
 git clone https://github.com/blockpilabs/near-drpc.git
 go build
+```
+
+### Docker
+```sh
+docker run -it -p 8181:8181 -p 9191:9191 blockpi/near-drpc
 ```
 
 <div style="page-break-after: always;"></div>
