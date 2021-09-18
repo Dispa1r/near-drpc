@@ -1,0 +1,60 @@
+#app {
+  width: 100%;
+}
+.container {
+  max-width: 1220px;
+  padding: 0 10px;
+  width: 100%;
+  margin: 30px auto 0px;
+}
+.essential {
+  margin-bottom: 30px;
+  color: #152339;
+  font-size: 22px;
+}
+.essential .label {
+  font-weight: bold;
+}
+.glabal-box {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.glabal-box .content {
+  color: #152339;
+  padding: 30px;
+  background: #f0f0f0;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.glabal-box .value {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.stat-table {
+  margin-bottom: 30px;
+}
+.stat-table .description{
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 40px;
+}
+.stat-table .el-table th{
+  background: #f0f0f0;
+  color: #152339;
+}
+.stat-table .el-table .slowly {
+  color: #E6A23C;
+}
+.stat-table .el-table .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: #F56C6C;
+  margin-right: 5px;
+}
+.stat-table .el-table .dot.is-active {
+  background: #67C23A;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./img/favicon.ico">
+  <title>Near-drpc</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.21.4/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/umd/locale/en.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="essential">
+        <div class="label">
+          ENDPOINT:
+        </div>
+        <div class="value">
+          {{endpoint}}
+        </div>
+      </div>
+      <div class="glabal-box">
+        <el-row :gutter="20">
+          <el-col :span="24" :sm="8">
+            <div class="content">
+              <div class="title">Total Peers</div>
+              <div class="value">{{total_peers}}</div>
+            </div>
+          </el-col>
+          <el-col :span="24" :sm="8">
+            <div class="content">
+              <div class="title">Total RPC Backends</div>
+              <div class="value">{{total_rpc_backends}}</div>
+            </div>
+          </el-col>
+          <el-col :span="24" :sm="8">
+            <div class="content">
+              <div class="title">Total RPC Nodes</div>
+              <div class="value">{{total_rpc_nodes}}</div>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+      <div class="stat-table">
+        <div class="description">
+          Selected Backends 
+        </div>
+        <el-table
+          :data="selectedData"
+          stripe
+          style="width: 100%">
+          <el-table-column
+            label="Node"
+          >
+            <template slot-scope="scope">
+              <el-tooltip :content="scope.row.Id" :open-delay="500">
+                <span>{{ formatAddr(scope.row.Id) }}</span>
+              </el-tooltip>
+            </template>
+          </el-table-column>
+          <el-table-column
+            prop="Height"
+            label="Height"
+          >
+          </el-table-column>
+          <el-table-column
+            prop="Latency"
+            label="Latency"
+          >
+            <template slot-scope="scope">
+              <span :class="{slowly: scope.row.Latency > 500}">{{scope.row.Latency}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="LastOnline"
+          >
+            <template slot-scope="scope">
+              <span>{{formatTime(scope.row.LastOnline)}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="Syncing"
+            width="80"
+            align="center"
+          >
+          <template slot-scope="scope">
+            <i class="dot" :class="{'is-active': !scope.row.Syncing}"></i>
+          </template>
+          </el-table-column>
+        </el-table>
+      </div>
+      <div class="stat-table">
+        <div class="description">
+          All RPC Nodes Discovered
+        </div>
+        <el-table
+          :data="tableData"
+          stripe
+          style="width: 100%">
+          <el-table-column
+            label="Node"
+          >
+            <template slot-scope="scope">
+              <el-tooltip :content="scope.row.Id" :open-delay="500">
+                <span>{{ formatAddr(scope.row.Id) }}</span>
+              </el-tooltip>
+            </template>
+          </el-table-column>
+          <el-table-column
+            prop="Height"
+            label="Height"
+          >
+          </el-table-column>
+          <el-table-column
+            prop="Latency"
+            label="Latency"
+          >
+            <template slot-scope="scope">
+              <span :class="{slowly: scope.row.Latency > 500}">{{scope.row.Latency}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="LastOnline"
+          >
+            <template slot-scope="scope">
+              <span>{{formatTime(scope.row.LastOnline)}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column
+            label="Syncing"
+            width="80"
+            align="center"
+          >
+          <template slot-scope="scope">
+            <i class="dot" :class="{'is-active': !scope.row.Syncing}"></i>
+          </template>
+          </el-table-column>
+        </el-table>
+      </div>
+    </div>
+  </div>
+  <script src="./js/settings.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>
