@@ -1,6 +1,8 @@
 # NEAR-DRPC
 ## A Decentralized RPC service for NEAR Protocol 
 
+Partially open source
+
 The service will scan the network and try to find out all the RPC nodes.
 Sort the RPC nodes and establish a DRPC proxy server with these nodes which have the lowest latency.
 
