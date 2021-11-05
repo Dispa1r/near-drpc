@@ -5,25 +5,57 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./img/favicon.ico">
-  <title>Near-drpc</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.21.4/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/umd/locale/en.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_2862633_c5pv3llytf9.css">
+  <link rel="stylesheet" href="./fonts/font-Rubik.css">
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
   <div id="app">
     <div class="container">
+      <div class="header">
+        <div class="header-left">
+          <img :src="window.coinLogo" class="coin-logo" alt="Coin Logo">
+          <div class="coin-name">{{window.coinName}}</div>
+          <div>
+            <a class="link isActive" href="/">
+              <i class="iconfont icon-network"></i><span>DRPC Mainnet</span>
+            </a>
+            <a class="link" href="/testnet">
+              <i class="iconfont icon-network-1"></i><span>DRPC Testnet</span>
+            </a>
+          </div>
+        </div>
+        <div class="header-right">
+          <a class="contact" href="https://twitter.com/RealBlockPI" target="_blank">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+          <a class="contact" href="https://discord.gg/xTvGVrGVZv" target="_blank">
+            <i class="iconfont icon-discord"></i>
+          </a>
+          <span class="power">Powered by</span>
+          <a href="https://chains.blockpi.io/#/">
+            <img class="logo" src="./img/logo.svg" alt="BlockPI Logo">
+          </a>
+        </div>
+      </div>
       <div class="essential">
         <div class="label">
           ENDPOINT:
         </div>
         <div class="value">
-          {{endpoint}}
+          <span class="endpoint">{{endpoint}}</span>
+          <span
+            class="copy"
+            :class="{ disabled: copyText === 'copied' }"
+            @click="handleCopy"
+          >{{ copyText }}</span>
         </div>
       </div>
       <div class="glabal-box">
@@ -146,6 +178,7 @@
       </div>
     </div>
   </div>
+  <script src="./js/config.js"></script>
   <script src="./js/settings.js"></script>
   <script src="./js/index.js"></script>
 </body>

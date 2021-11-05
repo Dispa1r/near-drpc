@@ -1,4 +1,6 @@
 ELEMENT.locale(ELEMENT.lang.en);
+document.title = window.customTitle;
+
 var app = new Vue({
   el:"#app",
   data() {
@@ -8,12 +10,13 @@ var app = new Vue({
       total_peers: 0,
       total_rpc_backends: 0,
       total_rpc_nodes: 0,
-      timer: null
+      timer: null,
+      copyText: 'copy',
     }
   },
   computed: {
     endpoint() {
-      return window.location.origin + '/rpc'
+      return window.rpc_url
     }
   },
   mounted() {
@@ -45,6 +48,14 @@ var app = new Vue({
         return id.substring(0, 5) + '...' + id.substring(id.length - 5);
       }
       return id || '';
+    },
+    handleCopy() {
+      navigator.clipboard.writeText(this.endpoint).then(() => {
+        this.copyText = 'copied';
+        setTimeout(() => {
+          this.copyText = 'copy';
+        }, 1000);
+      });
     }
   }
 })

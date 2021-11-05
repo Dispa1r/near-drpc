@@ -1,4 +1,4 @@
-window.axiosBaseUrl = 'https://near-drpc.blockpi.io'
+
 const request = window.axios.create({
   baseURL: window.axiosBaseUrl,
   timeout: 60000

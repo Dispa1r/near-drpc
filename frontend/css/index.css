@@ -1,46 +1,161 @@
 #app {
   width: 100%;
 }
+body * {
+  font-family: Rubik, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif !important;
+}
 .container {
   max-width: 1220px;
   padding: 0 10px;
   width: 100%;
   margin: 30px auto 0px;
 }
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #7c8490;
+}
+.header .header-left{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  color: #152339;
+  white-space: nowrap;
+  line-height: 1;
+  font-size: 14px;
+}
+.header-left .coin-logo {
+  width: 32px;
+  height: 32px;
+}
+.header-left .coin-name {
+  margin: 0 20px;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 32px;
+}
+.header-left .link {
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 24px;
+  padding: 8px 20px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  color: #152339;
+}
+.header-left .link:last-of-type{
+  margin-right: 0px;
+}
+.header-left .link .iconfont {
+  margin-right: 10px;
+}
+.header-left .link.isActive {
+  border-color: #152339;
+  font-weight: 500;
+}
+
+.header .header-right{
+  display: flex;
+  align-items: center;
+  color: #152339;
+  font-size: 12px;
+}
+.header-right .contact .iconfont{
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 20px;
+  color: #152339;
+}
+.header-right .contact .iconfont:hover{
+  color: #1fc399;
+}
+.header-right .logo {
+  width: 170px;
+  height: 35px;
+}
+.header-right .power {
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 768px){
+  .header-left .link {
+    margin-top: 20px;
+  }
+  .header-right {
+    margin-top: 20px;
+  }
+}
 .essential {
+  margin-top: 70px;
   margin-bottom: 30px;
   color: #152339;
-  font-size: 22px;
+  font-size: 16px;
 }
 .essential .label {
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 18px;
+}
+.essential .value {
+  display: flex;
+  align-items: center;
+}
+.essential .value .endpoint {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.essential .value .copy {
+  margin-left: 8px;
+  flex-shrink: 0;
+  color: #7c8490;
+  border: 1px solid #eeeeee;
+  font-size: 14px;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.essential .value .copy.disabled {
+  cursor: default;
 }
 .glabal-box {
   width: 100%;
   margin-bottom: 30px;
 }
+
 .glabal-box .content {
   color: #152339;
-  padding: 30px;
-  background: #f0f0f0;
+  padding: 40px;
   margin-bottom: 10px;
   border-radius: 4px;
 }
+.glabal-box .el-col:nth-child(1) .content {
+  background: #f7f7f7 url('../img/peers.png') no-repeat 90% center;
+}
+.glabal-box .el-col:nth-child(2) .content {
+  background: #f7f7f7 url('../img/backends.png') no-repeat 90% center;
+}
+.glabal-box .el-col:nth-child(3) .content {
+  background: #f7f7f7 url('../img/nodes.png') no-repeat 90% center;
+}
 .glabal-box .value {
   margin-top: 10px;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
 }
 .stat-table {
   margin-bottom: 30px;
 }
 .stat-table .description{
-  font-weight: bold;
+  font-weight: 500;
   font-size: 22px;
   line-height: 40px;
 }
 .stat-table .el-table th{
-  background: #f0f0f0;
+  background: #f7f7f7;
   color: #152339;
 }
 .stat-table .el-table .slowly {
