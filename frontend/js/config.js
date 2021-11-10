@@ -18,4 +18,7 @@ window.coinName = 'Near'
  */
 window.coinLogo = './img/coin-logo.svg'
 
+/**
+ * Set RPC-URL for using
+ */
 window.rpc_url = 'https://public-rpc.blockpi.io/http/near'
