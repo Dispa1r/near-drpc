@@ -173,3 +173,6 @@ body * {
 .stat-table .el-table .dot.is-active {
   background: #67C23A;
 }
+.emoji {
+  margin-right: 10px;
+}
